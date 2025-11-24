@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+int main() {
+    int dd, yyyy;
+    char slash, month[3];
+    scanf("%d/%2s/%d", &dd, month, &yyyy);
+
+    printf("%02d-Apr-%d", dd, yyyy);
+    return 0;
+}
