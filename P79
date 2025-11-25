@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(){
+    FILE *f=fopen("numbers.txt","r");
+    if(!f){ printf("Cannot open numbers.txt\n"); return 0; }
+    long long sum=0;
+    long long cnt=0;
+    long long x;
+    while(fscanf(f,"%lld",&x)==1){ sum+=x; cnt++; }
+    fclose(f);
+    if(cnt==0) printf("0 0.00\n"); else printf("%lld %.2f\n",sum,(double)sum/cnt);
+    return 0;
+}
