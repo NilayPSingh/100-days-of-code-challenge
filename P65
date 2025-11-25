@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char s[100005], t[100005];
+    if(scanf("%s %s",s,t)!=2) return 0;
+    int cnt1[26]={0}, cnt2[26]={0};
+    for(int i=0;s[i];i++) cnt1[s[i]-'a']++;
+    for(int i=0;t[i];i++) cnt2[t[i]-'a']++;
+    int ok=1;
+    for(int i=0;i<26;i++) if(cnt1[i]!=cnt2[i]) { ok=0; break; }
+    if(ok) printf("Anagram\n"); else printf("Not Anagram\n");
+    return 0;
+}
