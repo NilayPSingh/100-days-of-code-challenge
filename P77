@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main(){
+    FILE *fin=fopen("input.txt","r");
+    if(!fin){ printf("Cannot open input.txt\n"); return 0; }
+    FILE *fout=fopen("output.txt","w");
+    if(!fout){ fclose(fin); printf("Cannot open output.txt\n"); return 0; }
+    int c;
+    while((c=fgetc(fin))!=EOF){
+        if(islower(c)) c=toupper(c);
+        fputc(c,fout);
+    }
+    fclose(fin); fclose(fout);
+    printf("Converted\n");
+    return 0;
+}
