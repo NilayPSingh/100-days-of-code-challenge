@@ -1,0 +1,15 @@
+#include <stdio.h>
+
+int main(){
+    char src[256],dst[256];
+    if(scanf("%s %s",src,dst)!=2) return 0;
+    FILE *fs=fopen(src,"r");
+    if(!fs){ printf("Cannot open source\n"); return 0; }
+    FILE *fd=fopen(dst,"w");
+    if(!fd){ fclose(fs); printf("Cannot open destination\n"); return 0; }
+    int c;
+    while((c=fgetc(fs))!=EOF) fputc(c,fd);
+    fclose(fs); fclose(fd);
+    printf("Copied\n");
+    return 0;
+}
