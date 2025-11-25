@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    int n,k;
+    if(scanf("%d",&n)!=1) return 0;
+    int *a=(int*)malloc(n*sizeof(int));
+    for(int i=0;i<n;i++) scanf("%d",&a[i]);
+    scanf("%d",&k);
+    if(k>n || k<=0){ printf("0\n"); free(a); return 0;}
+    long long sum=0;
+    for(int i=0;i<k;i++) sum+=a[i];
+    long long mx=sum;
+    for(int i=k;i<n;i++){
+        sum += a[i] - a[i-k];
+        if(sum>mx) mx=sum;
+    }
+    printf("%lld\n",mx);
+    free(a);
+    return 0;
+}
