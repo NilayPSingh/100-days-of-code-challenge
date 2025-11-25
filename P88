@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+enum Items{I0,I1,I2,I3,I4};
+
+int main(){
+    const char *names[]={"I0","I1","I2","I3","I4"};
+    for(int i=0;i<5;i++) printf("%s %d\n",names[i],i);
+    return 0;
+}
