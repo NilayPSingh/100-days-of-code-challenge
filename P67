@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    int m,n;
+    if(scanf("%d %d",&m,&n)!=2) return 0;
+    int *a=(int*)malloc(m*sizeof(int));
+    int *b=(int*)malloc(n*sizeof(int));
+    for(int i=0;i<m;i++) scanf("%d",&a[i]);
+    for(int i=0;i<n;i++) scanf("%d",&b[i]);
+    int *c=(int*)malloc((m+n)*sizeof(int));
+    int i=0,j=0,k=0;
+    while(i<m && j<n){
+        if(a[i]<=b[j]) c[k++]=a[i++];
+        else c[k++]=b[j++];
+    }
+    while(i<m) c[k++]=a[i++];
+    while(j<n) c[k++]=b[j++];
+    for(int t=0;t<k;t++){
+        if(t) printf(" ");
+        printf("%d",c[t]);
+    }
+    printf("\n");
+    free(a); free(b); free(c);
+    return 0;
+}
