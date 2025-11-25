@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+struct Date{ int d; int m; int y; };
+struct Employee{ char name[100]; int id; struct Date joining; };
+
+int main(){
+    struct Employee e;
+    scanf("%99s %d %d %d %d",&e.name,&e.id,&e.joining.d,&e.joining.m,&e.joining.y);
+    printf("%s %d %02d-%02d-%04d\n",e.name,e.id,e.joining.d,e.joining.m,e.joining.y);
+    return 0;
+}
